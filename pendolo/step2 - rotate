@@ -1,0 +1,19 @@
+let xtop = 300;
+let ytop = 150;
+let l = 100;
+let r = 10;
+
+function setup() {
+  
+  createCanvas(600, 400);
+  background(220);
+  
+  line(xtop ,ytop , xtop, ytop + l);
+
+  ellipse(xtop, ytop + l + r/2, r, r);
+
+}
+
+
+function draw() {
+}
