@@ -1,0 +1,29 @@
+let xtop = 0;
+let ytop = 0;
+let l = 100;
+let r = 10;
+let angle = 0;
+
+
+function setup() {
+  createCanvas(600, 400);
+}
+
+
+
+function draw() {
+  background(220);
+  angle = angle + 1;
+  
+  push();
+  
+  translate(width/2, height/2);
+  
+  angleMode(DEGREES);
+  rotate(angle);
+
+  line(xtop ,ytop , xtop, ytop + l);
+  ellipse(xtop, ytop + l + r/2, r, r);
+  
+  pop();  
+}
