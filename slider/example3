@@ -1,0 +1,27 @@
+let l = 100;
+let slider;
+
+function setup() {
+  createCanvas(600, 400);
+
+  slider = createSlider(0, 200, 100);
+  slider.position(20, height - 30);
+  slider.style('width', '200px');
+  
+//  text('red', slider.x * 2 + slider.width, 35);
+
+  textSize(20);
+
+}
+
+function draw() {
+  background(220);
+  
+  text('slider', slider.x * 2 + slider.width, slider.y + 15);
+
+  let l = slider.value();
+
+  strokeWeight(4);
+  line(100,200,100 + l,200);
+  
+}
