@@ -15,9 +15,7 @@ let slider_v0;
 
 let l = 20;
 
-//let vy = 0;
 let ay = 0.1;
-
 
 function setup() {
   createCanvas(600, my_height + tool_height);
@@ -103,7 +101,6 @@ function draw() {
     circle(x, my_height - y, r);
     
     vx = slider_v0_value * cos(radians(slider_alpha_value));
-//    vy = 2;
     vy = -slider_v0_value * sin(radians(slider_alpha_value));
     
   } else {
@@ -136,14 +133,8 @@ function draw() {
   }   
 
   stroke(255, 0, 0);
-//  line(slider_x_value, my_height - slider_y_value, slider_x_value + l * sin(alpha),200);
   line(slider_x_value, my_height - slider_y_value, slider_x_value + l * cos(radians(slider_alpha_value)), my_height - slider_y_value - l * sin(radians(slider_alpha_value)));
   stroke(0);
-
-//  print(l * sin(slider_alpha_value));
-//  print(sin(radians(slider_alpha_value)));
-//  print(vx);
-
 }
 
 
