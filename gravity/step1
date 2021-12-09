@@ -73,13 +73,9 @@ function draw() {
     r = slider_r_value;
 
     strokeWeight(2);
-//    circle(x, my_height - y, 20);
     circle(x, my_height - y, r);
     
   } else {
- //     x = x + 1;
-  //    y = y + 1;
-    
       vy = vy + ay;
       y = y - vy;
     
