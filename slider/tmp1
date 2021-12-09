@@ -1,0 +1,85 @@
+let l = 100;
+let slider;
+
+let x, y;
+
+let flag = false;
+
+let button;
+
+function setup() {
+  createCanvas(600, 400);
+
+  slider_x0 = createSlider(0, 100, 30);
+  slider_x0.position(80, height - 30);
+  slider_x0.style('width', '200px');
+  
+  textSize(20);
+
+  
+  button = createButton('click me');
+  button.position(0, 0);
+   
+  
+  
+  
+  
+}
+
+function draw() {
+  background(220);
+  
+  text('x0', 20, slider_x0.y + 15);
+
+  let slider_x0_value = slider_x0.value();
+  
+  text(slider_x0_value, slider_x0.x + slider_x0.width + 20, slider_x0.y + 15);
+  
+  button.mousePressed(action_button); 
+  
+  strokeWeight(2);
+  
+  //x = 30;
+  
+  if (flag == false){
+    x = slider_x0_value;
+    y = 300;
+    circle(x, y, 20);
+  } else {
+    //  circle(30,30,20);
+
+      x = x + 1;
+      circle(x, y, 20);
+    
+    button.style(LABEL, 'reset');
+    
+    
+  } 
+  
+  print(flag);
+  
+/*
+  
+  y = y - 1;
+  
+  //circle(30,30,20);
+*/
+
+  
+//  line(100,200,100 + l,200);
+
+  
+}
+
+
+function action_button() {
+  if (flag == false) {
+    flag = true;
+  } else {
+    flag = false;
+  }
+  
+
+
+
+}
