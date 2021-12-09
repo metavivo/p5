@@ -77,7 +77,6 @@ function draw() {
   } else {
       x = x + 1;
       y = y + 1;
-  //    circle(x, my_height - y, 20);
       circle(x, my_height - y, r);
   
       button.remove();
