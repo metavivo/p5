@@ -1,0 +1,158 @@
+let my_height = 400;
+let tool_height = 190;
+let tool_h = 0;
+
+let button;
+let flag = false;
+
+let x, y, r, alpha, v0;
+
+let slider_x;
+let slider_y;
+let slider_r;
+let slider_alpha;
+let slider_v0;
+
+let l = 20;
+
+//let vy = 0;
+let ay = 0.1;
+
+
+function setup() {
+  createCanvas(600, my_height + tool_height);
+
+// button  
+  textSize(20);
+  button = createButton('click me');
+  button.position(0, my_height + 2);
+  button.mousePressed(action_button); 
+  tool_h = tool_h + 30;
+
+// slider_x
+  slider_x = createSlider(10, width - 10, 10);
+  slider_x.position(50, my_height + tool_h);
+  slider_x.style('width', '200px');
+  tool_h = tool_h + 30;
+
+// slider_y
+  slider_y = createSlider(10, my_height, 12);
+  slider_y.position(50, my_height + tool_h);
+  slider_y.style('width', '200px');
+  tool_h = tool_h + 30;
+  
+// slider_r
+  slider_r = createSlider(0, 300, 20);
+  slider_r.position(50, my_height + tool_h);
+  slider_r.style('width', '200px');
+  tool_h = tool_h + 30;
+  
+// slider_alpha
+  slider_alpha = createSlider(0, 90, 45);
+  slider_alpha.position(50, my_height + tool_h);
+  slider_alpha.style('width', '200px');
+  tool_h = tool_h + 30;
+  
+// slider_v0
+  slider_v0 = createSlider(0, 10, 5, 0.1);
+  slider_v0.position(50, my_height + tool_h);
+  slider_v0.style('width', '200px');
+  tool_h = tool_h + 30;
+  
+}
+
+function draw() {
+  background(220);
+  
+// separator  
+  line(0,400, width, 400);
+  
+// slider_x  
+  text('x', 20, slider_x.y + 15);
+  let slider_x_value = slider_x.value();
+  text(slider_x_value, slider_x.x + slider_x.width + 20,slider_x.y + 15);
+    
+// slider_y  
+  text('y', 20, slider_y.y + 15);
+  let slider_y_value = slider_y.value();
+  text(slider_y_value, slider_y.x + slider_y.width + 20,slider_y.y + 15);
+    
+// slider_r 
+  text('r', 20, slider_r.y + 15);
+  let slider_r_value = slider_r.value();
+  text(slider_r_value, slider_r.x + slider_r.width + 20, slider_r.y + 15);
+    
+// slider_alpha
+  text('α', 20, slider_alpha.y + 15);
+  let slider_alpha_value = slider_alpha.value();
+  text(slider_alpha_value, slider_alpha.x + slider_alpha.width + 20, slider_alpha.y + 15);
+    
+// slider_v0
+  text('v0', 20, slider_v0.y + 15);
+  let slider_v0_value = slider_v0.value();
+  text(slider_v0_value, slider_v0.x + slider_v0.width + 20, slider_v0.y + 15);
+    
+  
+  
+  if (flag == false){
+    x = slider_x_value;
+    y = slider_y_value;
+    r = slider_r_value;
+
+    strokeWeight(2);
+    circle(x, my_height - y, r);
+    
+    vx = slider_v0_value * cos(radians(slider_alpha_value));
+//    vy = 2;
+    vy = -slider_v0_value * sin(radians(slider_alpha_value));
+    
+  } else {
+    
+      if(y < r/2){
+        vy = (-1.01) * vy;
+      }
+      
+      if(x > width - r/2){
+        vx = (-1.01) * vx;
+      }
+
+      if(x < r/2){
+        vx = (-1.01) * vx;
+      }
+
+      
+      vy = vy + ay;
+    
+      x = x + vx;
+      y = y - vy;
+    
+      circle(x, my_height - y, r);
+  
+      button.remove();
+      button = createButton('reset');
+      button.position(0, my_height + 2);
+      button.mousePressed(action_button); 
+    
+  }   
+
+  stroke(255, 0, 0);
+//  line(slider_x_value, my_height - slider_y_value, slider_x_value + l * sin(alpha),200);
+  line(slider_x_value, my_height - slider_y_value, slider_x_value + l * cos(radians(slider_alpha_value)), my_height - slider_y_value - l * sin(radians(slider_alpha_value)));
+  stroke(0);
+
+//  print(l * sin(slider_alpha_value));
+//  print(sin(radians(slider_alpha_value)));
+//  print(vx);
+
+}
+
+
+
+function action_button() {
+  if (flag == false) {
+    flag = true;
+  } else {
+    vy = 0;
+    flag = false;
+  }
+}
