@@ -1,0 +1,105 @@
+let my_height = 400;
+let tool_height = 130;
+let tool_h = 0;
+
+let button;
+let flag = false;
+
+let x, y, r;
+
+let slider_x;
+let slider_y;
+let slider_r;
+
+let vy = 0;
+let ay = 0.1;
+
+function setup() {
+  createCanvas(600, my_height + tool_height);
+
+// button  
+  textSize(20);
+  button = createButton('click me');
+  button.position(0, my_height + 2);
+  button.mousePressed(action_button); 
+  tool_h = tool_h + 30;
+
+// slider_x
+  slider_x = createSlider(10, width - 10, 280);
+  slider_x.position(50, my_height + tool_h);
+  slider_x.style('width', '200px');
+  tool_h = tool_h + 30;
+
+// slider_y
+  slider_y = createSlider(10, my_height, 366);
+  slider_y.position(50, my_height + tool_h);
+  slider_y.style('width', '200px');
+  tool_h = tool_h + 30;
+  
+// slider_r
+  slider_r = createSlider(0, 300, 20);
+  slider_r.position(50, my_height + tool_h);
+  slider_r.style('width', '200px');
+  tool_h = tool_h + 30;
+  
+}
+
+function draw() {
+  background(220);
+  
+// separator  
+  line(0,400, width, 400);
+  
+// slider_x  
+  text('x', 20, slider_x.y + 15);
+  let slider_x_value = slider_x.value();
+  text(slider_x_value, slider_x.x + slider_x.width + 20,slider_x.y + 15);
+    
+// slider_y  
+  text('y', 20, slider_y.y + 15);
+  let slider_y_value = slider_y.value();
+  text(slider_y_value, slider_y.x + slider_y.width + 20,slider_y.y + 15);
+    
+// slider_r 
+  text('r', 20, slider_r.y + 15);
+  let slider_r_value = slider_r.value();
+  text(slider_r_value, slider_r.x + slider_r.width + 20,slider_r.y + 15);
+    
+  
+  
+  if (flag == false){
+    x = slider_x_value;
+    y = slider_y_value;
+    r = slider_r_value;
+
+    strokeWeight(2);
+//    circle(x, my_height - y, 20);
+    circle(x, my_height - y, r);
+    
+  } else {
+ //     x = x + 1;
+  //    y = y + 1;
+    
+      vy = vy + ay;
+      y = y - vy;
+    
+      circle(x, my_height - y, r);
+  
+      button.remove();
+      button = createButton('reset');
+      button.position(0, my_height + 2);
+      button.mousePressed(action_button); 
+    
+  }   
+}
+
+
+
+function action_button() {
+  if (flag == false) {
+    flag = true;
+  } else {
+    vy = 0;
+    flag = false;
+  }
+}
