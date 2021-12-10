@@ -1,7 +1,3 @@
-// TODO NEXT: DISABLE SLIDERS WHILE THE ANIMATION IS PLAYING
-
-
-
 let my_height = 400;
 let tool_height = 190;
 let tool_h = 0;
