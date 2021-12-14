@@ -1,1 +1,15 @@
-sdfafa
+function setup() {
+  createCanvas(600, 400);
+  
+  x = 30;
+  
+}
+
+function draw() {
+  background(220);
+  strokeWeight(2);
+  
+  x = x + 1;
+  
+  circle(200, x, 50);
+}
