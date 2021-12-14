@@ -1,0 +1,32 @@
+function setup() {
+  createCanvas(600, 400);
+  
+  Xc = width/2;
+  Yc = height/2;
+  d = 200;
+  alpha = 0;
+  
+}
+
+function draw() {
+//  background(220);
+  strokeWeight(2);
+  
+  Yc = Yc + 1;
+  
+  strokeWeight(10);
+//  point(Xc,Yc);
+  
+  strokeWeight(3);
+//  line(Xc - d, Yc, Xc + d, Yc);
+  
+  stroke(255, 0, 0);
+  strokeWeight(10);
+  alpha = alpha + 2;
+  X = d * cos(radians(alpha));
+
+  point(Xc + X, Yc);
+  
+  stroke(0);
+
+}
