@@ -1,0 +1,58 @@
+
+
+function setup() {
+  createCanvas(700, 400);
+  background(255);
+  
+  
+  
+  fill(0);    
+
+  x1 = 100;
+  y1 = 100;
+  x2 = 300;
+  y2 = 300;
+
+  line(x1,y1,x2,y2);
+  
+  strokeWeight(5);
+  
+  
+  l = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+  d = l/10;
+  
+  
+  angleMode(DEGREES);
+
+  push();
+  translate(x2,y2);
+  rotate(15);
+  line(0, 0, -d, -d);
+  pop();
+
+  push();
+  translate(x2,y2);
+  rotate(-15);
+  line(0, 0, -d, -d);
+  pop();
+
+  
+}
+
+function draw() {  
+}
+
+
+function mousePressed() {
+    background(255);
+    x1 = mouseX;
+    y1 = mouseY;
+} 
+
+
+function mouseDragged() {
+    x2 = mouseX;
+    y2 = mouseY;
+    background(255);
+    line(x1, y1, x2, y2);
+}
