@@ -1,0 +1,49 @@
+
+
+function setup() {
+  createCanvas(700, 400);
+  background(255);
+  
+  
+  
+  fill(0);    
+
+
+  line(100,100,300,300);
+  
+  strokeWeight(5);
+  
+  angleMode(DEGREES);
+
+  push();
+  translate(300,300);
+  rotate(30);
+  line(0, 0, -50, -50);
+  pop();
+
+  push();
+  translate(300,300);
+  rotate(-30);
+  line(0, 0, -50, -50);
+  pop();
+
+  
+}
+
+function draw() {  
+}
+
+
+function mousePressed() {
+    background(255);
+    x1 = mouseX;
+    y1 = mouseY;
+} 
+
+
+function mouseDragged() {
+    x2 = mouseX;
+    y2 = mouseY;
+    background(255);
+    line(x1, y1, x2, y2);
+}
