@@ -11,7 +11,6 @@ function setup() {
 function draw() {
   background(220);
  
-  circle(cx, cy, 10);
  
  
   a = a + 0.01;
@@ -27,5 +26,7 @@ function draw() {
   
   circle(x, y, 10);
   circle(x, cy, 10);
+
+  circle(cx, cy, 10);
 
 }
