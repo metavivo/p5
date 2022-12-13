@@ -1,0 +1,28 @@
+r = 100;
+a = 0;
+cx = 200;
+cy = 200;
+
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+ 
+  circle(cx, cy, 10);
+ 
+ 
+  a = a + 0.01;
+ 
+  x = cx + r * cos(a);
+  y = cy - r * sin(a);
+  circle(x, y, 10);
+ 
+  circle(x, cy, 10);
+ 
+  line(x, cy, x, y);
+  line(cx, cy, x, cy);
+ 
+}
