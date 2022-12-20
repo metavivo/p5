@@ -1,0 +1,29 @@
+function setup(){
+  createCanvas(400, 400);
+  background(255);
+  y = 50;
+  speed = 0;
+  gravity = 0.2;
+}
+
+function draw() {
+  background(255);
+
+  fill(0);
+  
+  y = y + speed;
+  speed = speed + gravity;
+
+    //If ball reaches bottom
+    //Reverse Speed
+    if (y > (height - 20)) {
+//    speed = speed * -0.99;
+    speed = - (0.98) * speed;
+    }
+  
+  
+  ellipse(width / 2, y,30,30);
+
+
+
+}
