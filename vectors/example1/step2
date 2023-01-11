@@ -1,0 +1,11 @@
+function setup() {
+  createCanvas(500, 400);
+  stroke(255, 0, 255);
+}
+
+function draw() {
+  background(200);
+  
+  line(0, 0, mouseX, mouseY);
+  
+}
