@@ -1,0 +1,28 @@
+function setup() {
+  createCanvas(700, 400);
+  background(240);
+  
+  fill(0);    
+}
+
+function draw() {  
+}
+
+function mousePressed() {
+    
+    x1 = mouseX;
+    y1 = mouseY;
+    line(x1, y1, x2, y2);
+  
+  
+} 
+
+
+function mouseReleased() {
+    x2 = mouseX;
+    y2 = mouseY;
+    
+  stroke(random(255), random(255), random(255));
+  
+  strokeWeight(3);
+}
