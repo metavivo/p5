@@ -49,11 +49,11 @@ function drawKeypoints() {
 //    print(prediction.landmarks.length);
     
     
-    j = 8; // punta mignolo
-    const keypoint_mignolo = prediction.landmarks[j];
+    j = 8; // punta indice
+    const keypoint_indice = prediction.landmarks[j];
     fill(0, 255, 0);
     noStroke();
-    ellipse(keypoint_mignolo[0], keypoint_mignolo[1], 10, 10);    
+    ellipse(keypoint_indice[0], keypoint_indice[1], 10, 10);    
   
   
   
@@ -65,7 +65,5 @@ function drawKeypoints() {
     
     
   }
-
-  
   
 }
