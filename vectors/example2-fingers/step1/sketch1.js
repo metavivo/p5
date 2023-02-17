@@ -24,6 +24,8 @@ function modelReady() {
 }
 
 function draw() {
+  
+  //We can comment the following instruction and clear the canvas with background(255);
   image(video, 0, 0, width, height);
 
   // We can call both functions to draw all keypoints and the skeletons
