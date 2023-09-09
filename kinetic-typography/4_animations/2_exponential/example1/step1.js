@@ -6,8 +6,7 @@ function setup() {
   createCanvas(600, 400)
   
   rect(x,100,100,100)
-  
-  
+
 }
 
 function draw() {
