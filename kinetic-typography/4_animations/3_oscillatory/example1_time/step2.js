@@ -10,7 +10,7 @@ let xFin
 
 let n = 0
 
-let p = 1
+let p = 5
 let omega
 let phi = 0
 let A = 200
@@ -38,11 +38,13 @@ function draw() {
   fc = frameCount
   t = fc/fr
   dy = textAscent()
-//  text('t = ' + round(t, 1), 10, dy)
+  text('t = ' + round(t, 1), 10, dy)
   
   dx = round(A * sin(omega * t + phi))
   x = x0 + A * sin(omega * t + phi)
-//  text('dx = ' + dx, 10, 300)
+  if (n < 3) {
+    text('dx = ' + dx, 10, 300)  
+  }
 
 
   if (dx == 200 && n == 0) {
