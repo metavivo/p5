@@ -25,7 +25,7 @@ function draw() {
   dy = textAscent()
   text(round(t, 1), 10, dy)
   
-  v = v0 + a * t
+//  v = v0 + a * t
   x = x0 + v0 * t + (1/2) * a * pow(t, 2)
   
   rect(x,100,100,100)
