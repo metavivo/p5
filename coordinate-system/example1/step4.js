@@ -7,7 +7,7 @@ function setup() {
   
   createAxes(Ox, Oy)
 
-  d = 30
+  d = 40
   createUnit(Ox, Oy, d)
     
 }
