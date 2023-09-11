@@ -2,8 +2,16 @@ function setup() {
   createCanvas(750, 500);
   background(220)
   
-  strokeWeight(3)
+//  createAxes(30, 30)
+  createAxes(100, 100)
+  
+    
+}
 
+
+function createAxes(Ox, Oy) {
+  strokeWeight(3)
+  
   line(20, height - 30, width - 20, height - 30)
   line(30, 10, 30, height - 20)
   
@@ -17,5 +25,7 @@ function setup() {
   text("O", 10, height - 10)
   text("X", width - 15, height - 10)
   text("Y", 10, 20)
-  
+
+  strokeWeight(1)
+
 }
