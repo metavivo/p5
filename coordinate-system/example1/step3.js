@@ -14,15 +14,6 @@ function createAxes(Ox, Oy) {
   strokeWeight(3)
   
   // x axis
-  
-  // red origin
-  strokeWeight(10)
-  stroke(255, 0, 0)
-  point(Ox, height - Oy)
-  stroke(0)
-  strokeWeight(3)
-
-  // x axis
   line(Ox - 20, height - Oy, width - 20, height - Oy)
 
   // y axis
@@ -32,23 +23,14 @@ function createAxes(Ox, Oy) {
   line(width - 30, height - Oy - 5, width - 20, height - Oy)
   line(width - 30, height - Oy + 5, width - 20, height - Oy)
 
-  // y arrow
-
-  strokeWeight(7)
-//  point(width - 30, height - Oy + 5)
-//  point(width - 20, height - Oy)  
-  strokeWeight(3)
-  
-  
-  
-  line(30, 10, 25, 20)
-  line(30, 10, 35, 20)
+  line(Ox, 10, Ox - 5, 20)
+  line(Ox, 10, Ox + 5, 20)
   
   strokeWeight(1)
 
   textSize(18)
-  text("O", 10, height - 10)
-  text("X", width - 15, height - 10)
-  text("Y", 10, 20)
+  text("O", Ox - 20, height - Oy + 20)
+  text("X", width - 15, height - Oy + 20)
+  text("Y", Ox - 20, 20)
 
 }
