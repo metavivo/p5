@@ -14,9 +14,6 @@ function setup() {
 
   textSize(20);
 
-// slider_x
-//  slider_x = createSlider(10, width - 10, 280);
-//  slider_x = createSlider(10, width - 10, 0);
   slider_x = createSlider(0, 400, 0);
   slider_x.position(50, my_height + tool_h);
   slider_x.style('width', '200px');
@@ -40,3 +37,4 @@ function draw() {
   circle(x + 0, 200, 50)
   
 }
+
