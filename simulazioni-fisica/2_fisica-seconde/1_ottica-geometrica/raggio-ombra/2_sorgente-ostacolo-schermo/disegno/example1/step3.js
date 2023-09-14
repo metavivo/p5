@@ -30,6 +30,11 @@ function setup() {
   
   // Problema: come allungare il raggio in modo da intercettare lo schermo?
   
+stroke(0, 0, 255)  
+  strokeWeight(3)
+  
+line(150, height/2, 350, height/2)  
+  
 push()
 translate(150,height/2)
 angleMode(DEGREES)
