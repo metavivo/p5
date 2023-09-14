@@ -14,7 +14,7 @@ function setup() {
   // ostacolo
   line(width/2, 150, width/2, height - 150)
   
-  // raggio 1
+  // raggio
   strokeWeight(2)
   stroke(255,150,0)
   textSize(25)
