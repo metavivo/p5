@@ -1,3 +1,17 @@
+/*
+ChatGPT
+
+Ecco un esempio di un quadro astratto animato con colori sfumati e in continuo cambiamento in p5.js:
+In questo esempio, vengono generati una serie di colori sfumati che cambiano gradualmente nel tempo. 
+Le forme astratte vengono quindi disegnate utilizzando questi colori in base al tempo, creando un'animazione continua e cangiante. 
+Puoi personalizzare il numero di colori, le forme e il ritmo dell'animazione in base alle tue preferenze.
+
+
+*/
+
+
+
+
 let colors = [];
 let numColors = 5;
 let t = 0;
