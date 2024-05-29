@@ -1,0 +1,51 @@
+let ts = 40
+let fr = 60
+let fc
+let t
+
+let duration = 3
+
+let k = 50
+
+let x = 0
+
+function setup() {
+  createCanvas(600, 400)
+  
+  frameRate(fr)
+  textSize(ts)
+  
+  rect(x,100,100,100)
+  
+}
+
+
+function draw() {
+  background(220)
+  
+  fc = frameCount
+  
+  // TEMPO
+  t = fc/fr
+  textSize(50)
+  text(round(t), 50, 50);
+  
+  // FUNZIONE
+  
+  if (t <= duration) {
+
+    x = x + 1  
+
+  } 
+  
+  
+  
+  if (t > duration) {
+    
+    x = x - 1
+    
+  }
+  
+    rect(x,100,100,100)
+  
+}
