@@ -1,73 +1,53 @@
-       /*
-            3. use opentype.js for more control
-            reference: https://github.com/opentypejs/opentype.js
-        */
+let font;  // opentype.js font object
+let path;  // percorso del testo
 
-        let font // opentype.js font object
-        let msg // text to write
-        let pts = [] // store path data
-        let path
-        
-        let fSize = 40
-        let sw = 4
-        let d = 0
+let fSize = 60;
+let sw = 2;
+let msg = 'Ciaooo!';
 
-        function setup() {
-            createCanvas(800, 500)
+function setup() {
+    createCanvas(800, 500);
+    opentype.load('Roboto-Italic.ttf', function (err, f) {
+        if (err) {
+            alert('Font could not be loaded: ' + err);
+        } else {
+            font = f;
+            console.log('Font caricato correttamente');
 
-//            opentype.load('Inconsolata.otf', function (err, f) {
-            opentype.load('Zap.ttf', function (err, f) {
-//            opentype.load('arial.ttf', function (err, f) {
-                if (err) {
-                    alert('Font could not be loaded: ' + err);
-                } else {
-                    font = f
-                    console.log('font ready')
-
-//                    fSize = 40
-                    msg = 'Ciaooo!'
-
-                    let x = 60;
-                    let y = 300;
-                    path = font.getPath(msg, x, y, fSize);
-                    console.log(path.commands)
-                }
-            })
+            // Crea il percorso del testo
+            let x = 60;
+            let y = 300;
+            path = font.getPath(msg, x, y, fSize);
+            console.log(path.commands);
         }
+    });
+}
 
-        function draw() {
-          
-          
-          
-          
-            if (!font) return
+function draw() {
+    background(255);
 
-//            background(0)
-            background(255)
-            noFill()
-//            stroke(255)
-            stroke(0)
-//          strokeWeight(4)
-          strokeWeight(sw)
-//            fill(0)  
-          
-            for (let cmd of path.commands) {
+    if (!path) return; // Aspetta che il path sia pronto
 
-                cmd.x = cmd.x + d;
-                cmd.x1 = cmd.x1 + d;
-                cmd.x2 = cmd.x2 + d;
+    noFill();
+    stroke(0);
+    strokeWeight(sw);
 
-              if (cmd.type === 'M') {
-                    beginShape()
-                    vertex(cmd.x, cmd.y)
-                } else if (cmd.type === 'L') {
-                    vertex(cmd.x, cmd.y)
-                } else if (cmd.type === 'C') {
-                    bezierVertex(cmd.x1, cmd.y1, cmd.x2, cmd.y2, cmd.x, cmd.y)
-                } else if (cmd.type === 'Q') {
-                    quadraticVertex(cmd.x1, cmd.y1, cmd.x, cmd.y)
-                } else if (cmd.type === 'Z') {
-                    endShape(CLOSE)
-                }
-            }
+    beginShape();
+
+    for (let cmd of path.commands) {
+        if (cmd.type === 'M') {
+            vertex(cmd.x, cmd.y);
+        } else if (cmd.type === 'L') {
+            vertex(cmd.x, cmd.y);
+        } else if (cmd.type === 'C') {
+            bezierVertex(cmd.x1, cmd.y1, cmd.x2, cmd.y2, cmd.x, cmd.y);
+        } else if (cmd.type === 'Q') {
+            quadraticVertex(cmd.x1, cmd.y1, cmd.x, cmd.y);
+        } else if (cmd.type === 'Z') {
+            endShape(CLOSE);
+            beginShape(); // Per una nuova lettera
         }
+    }
+
+    endShape();
+}
